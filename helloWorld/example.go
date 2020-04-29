@@ -10,11 +10,10 @@ func main() {
 		c.JSON(200, gin.H{
 			"message": "pong",
 		})
-	}).GET("/pingping", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"message": "pongpong",
-		})
 	})
-	r.Group("/v1")
+	r.GET("/p/*segs", nil)
+	// r.GET("/ping/:seg/2", nil)
+	r.GET("/ping/:seg", nil)
+	r.Group("/v1").GET("/get")
 	r.Run()
 }
